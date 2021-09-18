@@ -10,6 +10,7 @@ source ~/.vim_runtime/vimrcs/filetypes.vim
 source ~/.vim_runtime/vimrcs/plugins_config.vim
 source ~/.vim_runtime/vimrcs/extended.vim
 
+
 try
 source ~/.vim_runtime/my_configs.vim
 catch
@@ -25,12 +26,15 @@ nnoremap ii :w<CR>
 nnoremap II :wq<CR>
 nnoremap <leader>s :mksession!<CR>
 nnoremap <leader>m :!make<CR>
-nnoremap <leader>p :w<CR>:!python %<CR>
+nnoremap <leader>p :w<CR>:!python3 %<CR>
+nnoremap ip :w<CR>:!python3 -i %<CR>
 nnoremap <leader>c :w<CR>:!g++ -w -o main % && ./main<CR>
-nnoremap <leader>g :w<CR>:!git add . && git commit -m "auto save" && git push<CR>
+nnoremap <leader>g :w<CR>:!go run %<CR>
+nnoremap <leader>s :w<CR>:!git add . && git commit -m "auto save" && git push<CR>
+map <C-n> :NERDTreeFind<CR>
+map <C-c> :NERDTreeToggle<CR>
+
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
 let g:vim_markdown_folding_disabled = 1
 set autoindent
 ' > ~/.vimrc
